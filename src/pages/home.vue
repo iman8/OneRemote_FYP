@@ -14,8 +14,9 @@
     <f7-toolbar bottom>
       <p>Copyright OneRemote ©</p>
     </f7-toolbar>
+    
     <!-- Page content-->
-        <!-- includes card-expandable -->
+    <!-- includes card-expandable -->
 <div class="card card-expandable">
   <!-- card content -->
   <div class="card-content">
@@ -33,6 +34,22 @@
            <button class="col button button-outline button-round">Find your tool!</button>
   </div>
 </div>
+<div class="card card-expandable">
+  <!-- card content -->
+  <div class="card-content">
+     <div class="bg-color-teal" style="height: 300px">
+            <div class="card-header text-color-black display-block"><br />
+              <small style="opacity: 0.7">Recommending you all tools suitable for you</small>
+            </div>
+            <a href="#" class="link card-close card-opened-fade-in color-black"
+              style="position: absolute; right: 15px; top: 15px">
+              <i class="icon f7-icons">xmark_circle_fill</i>
+            </a>
+          </div>
+    <div class="card-header">OneRemote</div>
+  </div>
+</div>
+
     <f7-block strong>
       <p>This is an example of split view application layout, commonly used on tablets. The main approach of such kind of layout is that you can see different views at the same time.</p>
 
@@ -40,10 +57,7 @@
 
       <p>The fun thing is that you can easily control one view from another without any line of JavaScript just using "data-view" attribute on links.</p>
     </f7-block>
-    <f7-block-title>Contact Developer</f7-block-title>
-    <f7-list>
-      <f7-list-item link="/about/" title="About"></f7-list-item>
-    </f7-list>
+    
 
     <f7-block-title>Sign in/Sign up</f7-block-title>
     <f7-block strong>
@@ -72,6 +86,11 @@
         title="Creator of OneRemote"
         link="/request-and-load/user/123456/"
       ></f7-list-item>
+    </f7-list>
+    
+    <f7-block-title>Contact Developer</f7-block-title>
+    <f7-list>
+      <f7-list-item link="/about/" title="About"></f7-list-item>
     </f7-list>
   </f7-page>
 </template>

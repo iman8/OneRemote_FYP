@@ -9,7 +9,7 @@
       <p>OneRemote recommends you with a bespoke remote tool for you to be able to WFH(work from home) and talk to your loved ones.</p>
     </f7-block>
     <f7-block>
-    
     </f7-block>
   </f7-page>
 </template>
+
