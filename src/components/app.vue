@@ -54,7 +54,6 @@
         <f7-page login-screen>
           <f7-nav-right>
           <f7-login-screen-title>Login</f7-login-screen-title>
-            <f7-link my-login-screen-close>Close</f7-link>
             </f7-nav-right>
           <f7-list form>
             <f7-list-input
@@ -71,7 +70,7 @@
             ></f7-list-input>
           </f7-list>
           <f7-list>
-            <f7-list-button title="Sign In" @click="alertLoginData"></f7-list-button>
+            <f7-list-button title="Sign In" @click=""></f7-list-button>
             <f7-block-footer>
             </f7-block-footer>
           </f7-list>
