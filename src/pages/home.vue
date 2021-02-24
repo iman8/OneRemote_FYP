@@ -38,6 +38,14 @@
         </f7-col>
       </f7-row>
     </f7-block>
+    
+    <!-- includes card-expandable -->
+<div class="card card-expandable">
+  <!-- card content -->
+  <div class="card-content">
+    <!-- put all content here -->
+  </div>
+</div>
 
 
     <f7-list>
