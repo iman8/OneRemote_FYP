@@ -2,6 +2,9 @@
   <f7-page name="form">
     <f7-navbar title="Form" back-link="Back"></f7-navbar>
     <f7-block-title>Fill out your details</f7-block-title>
+      <f7-toolbar bottom>
+      <p>Copyright OneRemote ©</p>
+    </f7-toolbar>
      <f7-list no-hairlines-md></f7-list>
       <f7-list-input
         label="Name"

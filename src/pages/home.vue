@@ -25,7 +25,6 @@
     <f7-block-title>Contact Developer</f7-block-title>
     <f7-list>
       <f7-list-item link="/about/" title="About"></f7-list-item>
-      <f7-list-item link="/form/" title="Form"></f7-list-item>
     </f7-list>
 
     <f7-block-title>Sign in/Sign up</f7-block-title>
@@ -51,7 +50,7 @@
         link="/load-something-that-doesnt-exist/"
       ></f7-list-item>
       <f7-list-item
-        title="Request Data & Load"
+        title="Creator of OneRemote"
         link="/request-and-load/user/123456/"
       ></f7-list-item>
     </f7-list>
