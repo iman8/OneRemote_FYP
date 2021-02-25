@@ -113,13 +113,12 @@
     import '@firebase/auth'
     
     export default {
-        data() { return {user: null, email: '', password: '', email_signup: '', password_signup: '', showSignupForm: false, }; },
-        methods: { onLoginWithEmailClicked(){ firebase.auth().signInWithEmailAndPassword(this.email,this.password).then( () => { this.user = firebase.auth().currentUser.user; } ).catch( (error) => { this.$f7.dialog.alert(error.message); } ); }, onLogoutClicked(e){
-        e.preventDefault(); firebase.auth().createUserWithEmailAndPassword(this.email_signup,this.password_signup).catch( (error) => {this.$f7.dialog.alert(error.message + 'Error creating user', ''); }); }, onLogoutClicked() { firebase.auth().signOut(); },
+        data(){ return{user: null, email: '', password: '', email_signup: '', password_signup: '', showSignupForm: 
+        false, }; },
+        methods: { onLoginWithEmailClicked(){ firebase.auth().signInWithEmailAndPassword(this.email,this.password).then( () => { this.user = firebase.auth().currentUser.user; } ).catch( (error) => { this.$f7.dialog.alert(error.message); } ); }, onSignupClicked(e){ e.preventDefault(); firebase.auth().createUserWithEmailAndPassword(this.email_signup, this.password_signup).catch( (error) => {this.$f7.dialog.alert(error.message + 'Error creating user', ''); }); }, onLogoutClicked() {firebase.auth().signOut(); }, 
         mounted(){ this.$f7.dialog.preloader();
             //configure using settings from firebase online application 
-            const config = { apiKey: "AIzaSyCtWQkRQqSRQT80ZzJ8IIpOpFoi0d3zsuo", authDomain: "oneremote-52a94.web.app", 
-            };
+            const config = { apiKey: "AIzaSyCtWQkRQqSRQT80ZzJ8IIpOpFoi0d3zsuo", authDomain: "oneremote-52a94.web.app",  };
             const firebaseApp = firebase.initializeApp(config); firebase.auth().onAuthStateChanged( (user) => {
             this.$f7.dialog.close(); this.user = user; } ); }, }
             }
