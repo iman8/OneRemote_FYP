@@ -58,11 +58,12 @@
 <!--show if user not logged in -->
 <f7-block v-else strong>
     <form @submit.prevent="onLogWithEmailClicked" action="" method="GET">
-    <!--User Login-->
-    <f7-list class="login-test" no-hairlines-md>
-        <f7-list-input class="email-input" type="email" placeholder="Email Address" :value="email"
-        @input="email = $event.target.value" label="Enter your email:" />
-        <f7-list-input type="password" placeholder="Password" :value="password" @input="password = $event.target.value" label="Enter password:" />
+        <!--User Login-->
+        <f7-list class="login-list" no-hairlines-md>
+            <f7-list-input class="email-input" type="email" placeholder="Email Address" :value="email"
+            @input="email = $event.target.value" label="Enter your login email:" />
+            <f7-list-input type="password" placeholder="Password" :value="password" @input="password = 
+            $event.target.value" label="Enter password:" />
         </f7-list>
         <f7-button fill type="submit">Login</f7-button>
     </form>
@@ -70,15 +71,17 @@
 <f7-block v-if="!user" strong>
         <!-- user sign up-->
         <f7-block-title>Do you want to register?</f7-block-title>
-        <f7-button b-if="!showSignupForm" fill v-on:click="showSignupForm = true">Create account</f7-button>
+        <f7-button v-if="!showSignupForm" fill v-on:click="showSignupForm = true">Create account</f7-button>
         <form @submit.prevent="onSignupClicked" action="" method="GET">
             <f7-list v-if="showSignupForm" class="login-list" no-hairlines-md>
-                <f7-list-input class="email-input" :value="email_signup" @input="email_signup = $event.target.getvalue" type="email" placeholder="Email address" label="Enter your email" />
-                <f7-list-input type="password" placeholder="Password"  :value="password_signup" @input="password_signup = $event.target.getvalue"  label="Create your password" />
+                <f7-list-input class="email-input" :value="email_signup" @input="email_signup = 
+                $event.target.getvalue" type="email" placeholder="Email address" label="Enter your email:" />
+                <f7-list-input type="password" placeholder="Password"  :value="password_signup"
+                @input="password_signup = $event.target.value"  label="Create your password:" />
             </f7-list>
             <f7-button v-if="showSignupForm" fill type="submit">Create account</f7-button>
         </form>
-    </f7-block>
+</f7-block>
     
     <f7-list>
       <f7-list-item
