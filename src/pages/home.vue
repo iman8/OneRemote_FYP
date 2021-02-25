@@ -71,6 +71,48 @@
       </f7-row>
     </f7-block>
     
+    <f7-block v-if="user" strong>
+    <f7-block-header>You are logged in as {{user.DisplayName}} {{user.email}}</f7-block-header>
+    <f7-button v-on:click="onLogoutClicked">Logout</f7-button>
+    </f7-block>
+    <f7-block v-else strong>
+        <form @submit.prevent="onLoginWithEmailClicked" action="" method="GET">
+        <f7-list class="login-list" no-hairlines-md>
+        <f7-list-input class="email-input" :value="email" @input="email = $event.target.value" label="Login with your email address" type="email" placeholder="Email address">
+        <f7-list-input :value="password" @input="password = $event.target.value" label="Enter your password" type="password" placeholder="Password">
+        </f7-list>
+        <f7-button fill type="submit">Login</f7-button>
+        </form>
+    </f7-block>
+    
+    <script>
+    import * as firebase from 'firebase';
+    import 'firebase/auth';
+    
+    export default {
+        data() {
+            return {
+            user: null, 
+            };
+        },
+        methods() {},
+        mounted() {
+            const config = {
+                apiKey: "AIzaSyCtWQkRQqSRQT80ZzJ8IIpOpFoi0d3zsuo",
+                authDomain: "oneremote-52a94.web.app",
+            };
+            
+            const firebaseApp = firebase.initializeApp(config);
+            
+            //fires when user logs in or out
+            firebase.auth().onAuthStateChanged((user) => {
+                console.log('User auth status has changed', user);
+                this.user = user;
+            });
+        },
+    };
+    </script>
+    
 
 
     <f7-list>
