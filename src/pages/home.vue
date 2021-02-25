@@ -50,71 +50,36 @@
   </div>
 </div>
 
-    <f7-block strong>
-      <p>This is an example of split view application layout, commonly used on tablets. The main approach of such kind of layout is that you can see different views at the same time.</p>
-
-      <p>Each view may have different layout, different navbar type (dynamic, fixed or static) or without navbar.</p>
-
-      <p>The fun thing is that you can easily control one view from another without any line of JavaScript just using "data-view" attribute on links.</p>
-    </f7-block>
-    
-
-    <f7-block-title>Sign in/Sign up</f7-block-title>
-    <f7-block strong>
-      <f7-row>
-        <f7-col width="50">
-          <f7-button fill raised popup-open="#my-popup">Sign up</f7-button>
-        </f7-col>
-        <f7-col width="50">
-          <f7-button fill raised login-screen-open="#my-login-screen">Login Screen</f7-button>
-        </f7-col>
-      </f7-row>
-    </f7-block>
-    
-    <f7-block v-if="user" strong>
-    <f7-block-header>You are logged in as {{user.DisplayName}} {{user.email}}</f7-block-header>
+<!-- show if user logged in -->
+<f7-block v-if="user" strong>
+    <f7-block-header>Welcome {{user.email}}!</f7-block-header>
     <f7-button v-on:click="onLogoutClicked">Logout</f7-button>
-    </f7-block>
-    <f7-block v-else strong>
-        <form @submit.prevent="onLoginWithEmailClicked" action="" method="GET">
-        <f7-list class="login-list" no-hairlines-md>
-        <f7-list-input class="email-input" :value="email" @input="email = $event.target.value" label="Login with your email address" type="email" placeholder="Email address">
-        <f7-list-input :value="password" @input="password = $event.target.value" label="Enter your password" type="password" placeholder="Password">
+</f7-block>
+<!--show if user not logged in -->
+<f7-block v-else strong>
+    <form @submit.prevent="onLogWithEmailClicked" action="" method="GET">
+    <!--User Login-->
+    <f7-list class="login-test" no-hairlines-md>
+        <f7-list-input class="email-input" type="email" placeholder="Email Address" :value="email"
+        @input="email = $event.target.value" label="Enter your email:" />
+        <f7-list-input type="password" placeholder="Password" :value="password" @input="password = $event.target.value" label="Enter password:" />
         </f7-list>
         <f7-button fill type="submit">Login</f7-button>
+    </form>
+</f7-block>
+<f7-block v-if="!user" strong>
+        <!-- user sign up-->
+        <f7-block-title>Do you want to register?</f7-block-title>
+        <f7-button b-if="!showSignupForm" fill v-on:click="showSignupForm = true">Create account</f7-button>
+        <form @submit.prevent="onSignupClicked" action="" method="GET">
+            <f7-list v-if="showSignupForm" class="login-list" no-hairlines-md>
+                <f7-list-input class="email-input" :value="email_signup" @input="email_signup = $event.target.getvalue" type="email" placeholder="Email address" label="Enter your email" />
+                <f7-list-input type="password" placeholder="Password"  :value="password_signup" @input="password_signup = $event.target.getvalue"  label="Create your password" />
+            </f7-list>
+            <f7-button v-if="showSignupForm" fill type="submit">Create account</f7-button>
         </form>
     </f7-block>
     
-    <script>
-    import * as firebase from 'firebase';
-    import 'firebase/auth';
-    
-    export default {
-        data() {
-            return {
-            user: null, 
-            };
-        },
-        methods() {},
-        mounted() {
-            const config = {
-                apiKey: "AIzaSyCtWQkRQqSRQT80ZzJ8IIpOpFoi0d3zsuo",
-                authDomain: "oneremote-52a94.web.app",
-            };
-            
-            const firebaseApp = firebase.initializeApp(config);
-            
-            //fires when user logs in or out
-            firebase.auth().onAuthStateChanged((user) => {
-                console.log('User auth status has changed', user);
-                this.user = user;
-            });
-        },
-    };
-    </script>
-    
-
-
     <f7-list>
       <f7-list-item
         title="Dynamic (Component) Route"
@@ -134,5 +99,40 @@
     <f7-list>
       <f7-list-item link="/about/" title="About"></f7-list-item>
     </f7-list>
+    
+
   </f7-page>
 </template>
+
+    <!--Firebase code, configure settings from firebase website-->
+    <script>
+    import * as firebase from 'firebase';
+    import 'firebase/auth';
+    
+    export default {
+        data() { return {user: null, email: '', password: '', email_signup: '', password_signup: '', showSignupForm: false, }; },
+        methods: { onLoginWithEmailClicked(){ firebase.auth().signInWithEmailAndPassword(this.email,this.password).then( () => { this.user = firebase.auth().currentUser.user; } ).catch( (error) => { this.$f7.dialog.alert(error.message); } ); }, onLogoutClicked(e){
+        e.preventDefault(); firebase.auth().createUserWithEmailAndPassword(this.email_signup,this.password_signup).catch( (error) => {this.$f7.dialog.alert(error.message + 'Error creating user', ''); }); }, onLogoutClicked() { firebase.auth().signOut(); },
+        mounted(){ this.$f7.dialog.preloader();
+            //configure using settings from firebase online application 
+            const config = { apiKey: "AIzaSyCtWQkRQqSRQT80ZzJ8IIpOpFoi0d3zsuo", authDomain: "oneremote-52a94.web.app", 
+            };
+            const firebaseApp = firebase.initializeApp(config); firebase.auth().onAuthStateChanged( (user) => {
+            this.$f7.dialog.close(); this.user = user; } ); }, }
+            }
+            
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCtWQkRQqSRQT80ZzJ8IIpOpFoi0d3zsuo",
+  authDomain: "oneremote-52a94.firebaseapp.com",
+  projectId: "oneremote-52a94",
+  storageBucket: "oneremote-52a94.appspot.com",
+  messagingSenderId: "549794943520",
+  appId: "1:549794943520:web:372bc8eb44b2f357ef2245",
+  measurementId: "G-61GQG5ZLHZ"
+};  
+        </script>
+    
+
+
+

@@ -18,65 +18,6 @@
 
   <!-- Your main view, should have "view-main" class -->
   <f7-view main class="safe-areas" url="/"></f7-view>
-
-    <!-- Popup -->
-    <f7-popup id="my-popup">
-      <f7-view>
-        <f7-page sign-up>
-          <f7-navbar title="Sign up">
-           <f7-nav-right>
-              <f7-link popup-close>Close</f7-link>
-             </f7-nav-right>
-           </f7-navbar>
-          <f7-block>
-              <f7-list form>
-            <f7-list-input
-              type="text"
-              name="username"
-              placeholder="Your username"
-              v-model:value="username"
-            ></f7-list-input>
-            <f7-list-input
-              type="password"
-              name="password"
-              placeholder="Your password"
-              v-model:value="password"
-            ></f7-list-input>
-          </f7-list>
-          </f7-block>
-          <f7-list-button title="Sign In" @click=""></f7-list-button>
-        </f7-page>
-      </f7-view>
-    </f7-popup>
-
-    <f7-login-screen id="my-login-screen">
-      <f7-view>
-        <f7-page login-screen>
-          <f7-nav-right>
-          <f7-login-screen-title>Login</f7-login-screen-title>
-            </f7-nav-right>
-          <f7-list form>
-            <f7-list-input
-              type="text"
-              name="username"
-              placeholder="Your username"
-              v-model:value="username"
-            ></f7-list-input>
-            <f7-list-input
-              type="password"
-              name="password"
-              placeholder="Your password"
-              v-model:value="password"
-            ></f7-list-input>
-          </f7-list>
-          <f7-list>
-            <f7-list-button title="Sign In" @click=""></f7-list-button>
-            <f7-block-footer>
-            </f7-block-footer>
-          </f7-list>
-        </f7-page>
-      </f7-view>
-    </f7-login-screen>
   </f7-app>
 </template>
 <script>
@@ -143,4 +84,5 @@
       }
     }
   }
+
 </script>
