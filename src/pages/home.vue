@@ -106,8 +106,8 @@
 
     <!--Firebase code, configure settings from firebase website-->
     <script>
-    import * as firebase from 'firebase';
-    import 'firebase/auth';
+    import { firebase } from '@firebase/app'
+    import '@firebase/auth'
     
     export default {
         data() { return {user: null, email: '', password: '', email_signup: '', password_signup: '', showSignupForm: false, }; },
@@ -120,17 +120,6 @@
             const firebaseApp = firebase.initializeApp(config); firebase.auth().onAuthStateChanged( (user) => {
             this.$f7.dialog.close(); this.user = user; } ); }, }
             }
-            
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCtWQkRQqSRQT80ZzJ8IIpOpFoi0d3zsuo",
-  authDomain: "oneremote-52a94.firebaseapp.com",
-  projectId: "oneremote-52a94",
-  storageBucket: "oneremote-52a94.appspot.com",
-  messagingSenderId: "549794943520",
-  appId: "1:549794943520:web:372bc8eb44b2f357ef2245",
-  measurementId: "G-61GQG5ZLHZ"
-};  
         </script>
     
 
