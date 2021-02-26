@@ -3,6 +3,7 @@ import AboutPage from '../pages/about.vue';
 import DynamicRoutePage from '../pages/dynamic-route.vue';
 import RequestAndLoad from '../pages/request-and-load.vue';
 import NotFoundPage from '../pages/404.vue';
+import RemotePage from '.../pages/remote.vue';
 
 var routes = [
   {
@@ -68,6 +69,10 @@ var routes = [
     path: '(.*)',
     component: NotFoundPage,
   },
+    {
+        path: '/remote/',
+        component: RemotePage,
+    },
 ];
 
 export default routes;

@@ -86,7 +86,7 @@
       ></f7-list-item>
       <f7-list-item
         title="Default Route (404)"
-        link="/load-something-that-doesnt-exist/"
+        link="/xxxxxxxxremote/"
       ></f7-list-item>
       <f7-list-item
         title="Creator of OneRemote"
