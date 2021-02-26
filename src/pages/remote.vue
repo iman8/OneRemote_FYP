@@ -15,7 +15,7 @@
   <!-- card content -->
   <div class="card-content">
      <div class="bg-color-white" style="height: 300px">
-            <div class="card-header text-color-black display-block">OneRemote<br />
+            <div class="card-header text-color-black display-block">OneRemote<br/>
               <small style="opacity: 0.7">Recommending you all tools suitable for you</small>
             </div>
             <a href="#" class="link card-close card-opened-fade-in color-black"
@@ -27,7 +27,21 @@
        <p>Missing your loved ones?Need a way to contact them? Are you in need of a tool to work from home? You are in the correct place!</p>
            <button class="col button button-outline button-round">Find your tool!</button>
   </div>
-</div>
+
+<div class="card card-expandable">
+  <!-- card content -->
+  <div class="card-content">
+     <div class="bg-color-teal" style="height: 300px">
+            <div class="card-header text-color-black display-block"><br />
+              <small style="opacity: 0.7">Recommending you all tools suitable for you</small>
+            </div>
+            <a href="#" class="link card-close card-opened-fade-in color-black"
+              style="position: absolute; right: 15px; top: 15px">
+              <i class="icon f7-icons">xmark_circle_fill</i>
+            </a>
+          </div>
+    <div class="card-header">OneRemote</div>
+  </div>
 
 </f7-page>
 </template>
