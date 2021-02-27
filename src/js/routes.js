@@ -70,7 +70,7 @@ var routes = [
     component: NotFoundPage,
   },
     {
-        path: '/remote/',
+        path: 'remote/',
         component: RemotePage,
     },
 ];

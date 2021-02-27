@@ -18,8 +18,7 @@
             <div class="card-header text-color-black display-block">OneRemote<br/>
               <small style="opacity: 0.7">Recommending you all tools suitable for you</small>
             </div>
-            <a href="#" class="link card-close card-opened-fade-in color-black"
-              style="position: absolute; right: 15px; top: 15px">
+            <a href="#" class="link card-close card-opened-fade-in color-black" style="position: absolute; right: 15px; top: 15px">
               <i class="icon f7-icons">xmark_circle_fill</i>
             </a>
           </div>
@@ -35,8 +34,7 @@
             <div class="card-header text-color-black display-block"><br />
               <small style="opacity: 0.7">Recommending you all tools suitable for you</small>
             </div>
-            <a href="#" class="link card-close card-opened-fade-in color-black"
-              style="position: absolute; right: 15px; top: 15px">
+            <a href="#" class="link card-close card-opened-fade-in color-black" style="position: absolute; right: 15px; top: 15px">
               <i class="icon f7-icons">xmark_circle_fill</i>
             </a>
           </div>
