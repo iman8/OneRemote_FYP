@@ -9,7 +9,7 @@
         <f7-list>
           <f7-list-item link="/about/" view=".view-main" panel-close title="About"></f7-list-item>
           <f7-list-item link="/form/" view=".view-main" panel-close title="Form"></f7-list-item>
-          <f7-list-item link="#" view=".view-main" back panel-close title="Remote Tools"></f7-list-item>
+          <f7-list-item link="/remote/" view=".view-main" back panel-close title="Remote Tools"></f7-list-item>
         </f7-list>
       </f7-page>
     </f7-view>
