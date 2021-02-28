@@ -66,14 +66,15 @@
         <f7-button fill type="submit">Login</f7-button>
     </form>
 </f7-block>
-<f7-block v-if="!user" strong>
-        <!-- user sign up-->
+    
+          <!-- user sign up-->
+        <f7-block v-if="!user" strong>
         <f7-block-title>Do you want to register?</f7-block-title>
         <f7-button v-if="!showSignupForm" fill v-on:click="showSignupForm = true">Create account</f7-button>
         <form @submit.prevent="onSignupClicked" action="" method="GET">
             <f7-list v-if="showSignupForm" class="login-list" no-hairlines-md>
-                <f7-list-input class="email-input" :value="email_signup" @input="email_signup = $event.target.getvalue" type="email" placeholder="Email address" label="Enter your email:" />
-                <f7-list-input type="password" placeholder="Password"  :value="password_signup" @input="password_signup = $event.target.value"  label="Create a password:" />
+                <f7-list-input class="email-input" :value="email_signup" @input="email_signup = $event.target.getvalue" label="Enter your email:"  type="email" placeholder="Email" />
+                <f7-list-input :value="password_signup" type="password" placeholder="Password" @input="password_signup = $event.target.value"  label="Create a password:" />
             </f7-list>
             <f7-button v-if="showSignupForm" fill type="submit">Create account</f7-button>
         </form>
@@ -104,7 +105,7 @@
     <!--Firebase code, configure settings from firebase website-->
     <script>
     import { firebase } from '@firebase/app'
-    import '@firebase/auth'
+    import '@firebase/auth';
     
     export default {
         data(){ return{user: null, email: '', password: '', email_signup: '', password_signup: '', showSignupForm: 
@@ -112,8 +113,12 @@
         methods: { onLoginWithEmailClicked(){ firebase.auth().signInWithEmailAndPassword(this.email,this.password).then( () => { this.user = firebase.auth().currentUser.user; } ).catch( (error) => {this.$f7.dialog.alert(error.message); } ); }, onSignupClicked(e){ e.preventDefault(); firebase.auth().createUserWithEmailAndPassword(this.email_signup, this.password_signup).catch( (error) => {this.$f7.dialog.alert(error.message + 'Error creating user', ''); }); }, onLogoutClicked() {firebase.auth().signOut(); }, 
         mounted(){ this.$f7.dialog.preloader();
             //configure using settings from firebase online application 
-            const config = { apiKey: "AIzaSyCtWQkRQqSRQT80ZzJ8IIpOpFoi0d3zsuo", authDomain: "oneremote-52a94.web.app", };
-            const firebaseApp = firebase.initializeApp(config); firebase.auth().onAuthStateChanged( (user) => {
+            const config = { 
+            apiKey: "AIzaSyCtWQkRQqSRQT80ZzJ8IIpOpFoi0d3zsuo", 
+            authDomain: "oneremote-52a94.web.app",
+            };
+            const firebaseApp = firebase.initializeApp(config); 
+            firebase.auth().onAuthStateChanged((user) => {
             this.$f7.dialog.close(); this.user = user; } ); }, }
             }
         </script>
