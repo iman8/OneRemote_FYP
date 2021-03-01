@@ -64,10 +64,10 @@ var routes = [
     path: '(.*)',
     component: NotFoundPage,
   },
-    {
-        path: '/remote/',
-        component: RemotePage,
-    },
+  {
+    path: '/remote/',
+    component: RemotePage,
+  },
 ];
 
 export default routes;
